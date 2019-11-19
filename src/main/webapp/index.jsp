@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-<p>Get your greeting <a href="/input">here</a> </p>
+<p>Input your Group <a href="/input">name</a> </p>
 </body>
 </html>

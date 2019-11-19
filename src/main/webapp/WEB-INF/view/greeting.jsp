@@ -2,6 +2,6 @@
 
 <html>
     <body>
-    Hello, ${message}
+    Hello ${group.name} ${param.conclusion}
     </body>
 </html>

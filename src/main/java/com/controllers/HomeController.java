@@ -1,18 +1,16 @@
 package com.controllers;
 
+import com.domens.Group;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class HomeController {
-
-//    @RequestMapping("/greeting")
-//    public String showPage() {
-//        return "greeting";
-//    }
 
     @RequestMapping("/input")
     public String input() {
@@ -20,10 +18,14 @@ public class HomeController {
     }
 
     @RequestMapping("/greeting")
-    public String processModel(HttpServletRequest request, Model model) {
-        String name = request.getParameter("nameParam");
-        name += ", the best group!";
-        model.addAttribute("message", name);
+    public String processModel(
+            @RequestParam(name = "conclusion", required = false, defaultValue = "") String conclusion) {
         return "greeting";
+    }
+
+    @ModelAttribute
+    private Group getGroup(HttpServletRequest request) {
+        String name = request.getParameter("nameParam");
+        return new Group(name);
     }
 }
