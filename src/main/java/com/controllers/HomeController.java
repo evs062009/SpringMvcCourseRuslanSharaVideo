@@ -2,7 +2,6 @@ package com.controllers;
 
 import com.domens.Group;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,13 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 public class HomeController {
 
     @RequestMapping("/input")
-    public String input() {
+    public String input(@RequestParam String title) {
         return "input";
     }
 
     @RequestMapping("/greeting")
-    public String processModel(
-            @RequestParam(name = "conclusion", required = false, defaultValue = "") String conclusion) {
+    public String processModel() {
         return "greeting";
     }
 
